@@ -1,0 +1,42 @@
+
+./plink1.9 --file data --make-bed --out data
+./gcta64  --bfile data  --autosome  --ibc  --out data
+sed '1d' data.ibc > temp1
+awk '{print ($4" "$5" "$6)}' temp1 > temp2
+rm temp1
+
+./plink1.9 --file data -het -out dataF
+sed '1d' dataF.het > temp3
+awk '{print ($3/$5)}' temp3 > temp4
+awk '{print ($6)}' temp3 > temp5
+rm temp3
+
+./plink1.9 --file data --indep-pairwise 50 5 0.9 --out prunned
+./plink1.9 --file data --make-bed --recode --extract prunned.prune.in --out data_prunned
+
+./plink1.9 --file data_prunned  --homozyg-kb 100 --homozyg --out data
+sed '1d' data.hom.indiv > temp6
+awk '{print ($5/100000)}' temp6 > temp7
+rm temp6
+
+rm data.hom.indiv
+./plink1.9 --file data_prunned  --homozyg-kb 1000 --homozyg --out data
+sed '1d' data.hom.indiv > temp8
+awk '{print ($5/100000)}' temp8 > temp9
+rm temp8
+
+rm data.hom.indiv
+./plink1.9 --file data_prunned  --homozyg-kb 5000 --homozyg --out data
+sed '1d' data.hom.indiv > temp10
+awk '{print ($5/100000)}' temp10 > temp11
+rm temp10
+
+paste qt.phe temp2 temp4 temp5 temp7 temp9 temp11 > temp12
+rm temp2
+rm temp4
+rm temp5
+rm temp7
+rm temp9
+rm temp11
+mv temp12 data.F
+

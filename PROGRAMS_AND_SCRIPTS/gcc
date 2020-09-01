@@ -1,0 +1,2 @@
+
+time gcc -o SNP_BP -w -O -static SNP_BP.c genlib.c -lm
