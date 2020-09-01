@@ -6,7 +6,7 @@ On the estimation of inbreeding depression using different measures of inbreedin
 Armando Caballero, Beatriz Villanueva and Tom Druet
 Evolutionary Applications 2020
 
-To run in an scratch directory: qsub script_SLIM_ID_100.sh <INPUT> <NIND> <REPS> <n>
+To run in an scratch directory: qsub script_SLIM_ID_100.sh INPUT NIND REPS n
 
 INPUT = input for slim, e.g. file slimINPUT_N100.
 
