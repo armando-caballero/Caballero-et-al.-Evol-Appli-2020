@@ -1,4 +1,4 @@
-// SNP_BP_DRUET.c
+// SNP_BP.c
 
 #include "libhdr"
 
