@@ -1,4 +1,4 @@
-# Caballero-et-al.-Evol-Appli-2020
+# Caballero-et-al.-Evol-Appl-2020
 
 Programs and software used in the simulations of 
 On the estimation of inbreeding depression using different measures of inbreeding from molecular markers
